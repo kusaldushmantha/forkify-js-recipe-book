@@ -1,11 +1,13 @@
 import { getJSON } from './helpers.js';
-import { API_URL } from './config.js';
+import { API_URL, RESULTS_PER_PAGE } from './config.js';
 
 export const state = {
   recipe: {},
   search: {
     query: '',
     results: [],
+    page: 1,
+    resultsPerPage: RESULTS_PER_PAGE,
   },
 };
 
@@ -24,7 +26,6 @@ export const loadRecipe = async function (id) {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
-
   } catch (e) {
     console.error(e);
     throw e;
@@ -48,4 +49,15 @@ export const loadSearchResults = async function (query) {
     console.error(err);
     throw err;
   }
+};
+
+export const getSearchResultsPage = function (page = state.search.page) {
+  const pageSize = state.search.resultsPerPage;
+
+  state.search.page = page;
+
+  return state.search.results.slice(
+    (page - 1) * pageSize,
+    (page - 1) * pageSize + pageSize
+  );
 };
