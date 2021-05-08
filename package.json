@@ -4,7 +4,7 @@
   "description": "A demo project done following the complete JavaScript course from Udemy",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --no-cache",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
