@@ -52,6 +52,7 @@ export const loadSearchResults = async function (query) {
         title: recipe.title,
         publisher: recipe.publisher,
         image: recipe.image_url,
+        ...(recipe.key && { key: recipe.key }),
       };
     });
     state.search.query = query;
@@ -108,7 +109,9 @@ export const uploadRecipe = async function (newRecipe) {
     const ingredients = Object.entries(newRecipe)
       .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
       .map(ingredient => {
-        const ingredientArray = ingredient[1].replaceAll(' ', '').split(',');
+        const ingredientArray = ingredient[1]
+          .split(',')
+          .map(element => element.trim());
 
         if (ingredientArray.length !== 3) {
           throw new Error(
@@ -138,7 +141,6 @@ export const uploadRecipe = async function (newRecipe) {
     const responseData = await sendJSON(`${API_URL}?key=${KEY}`, recipe);
     state.recipe = createRecipeObject(responseData);
     addBookmark(state.recipe);
-
   } catch (err) {
     throw err;
   }
