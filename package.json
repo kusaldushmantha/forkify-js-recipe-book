@@ -1,0 +1,33 @@
+{
+  "name": "forkify-js-recipe-book",
+  "version": "1.0.0",
+  "description": "A demo project done following the complete JavaScript course from Udemy",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html --no-cache",
+    "build": "parcel build index.html --dist-dir ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kusaldushmantha/forkify-js-recipe-book.git"
+  },
+  "author": "Kusal Kankanamge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kusaldushmantha/forkify-js-recipe-book/issues"
+  },
+  "homepage": "https://github.com/kusaldushmantha/forkify-js-recipe-book#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.0.0-beta.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
+    "core-js": "^3.11.1",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
