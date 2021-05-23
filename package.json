@@ -2,10 +2,10 @@
   "name": "forkify-js-recipe-book",
   "version": "1.0.0",
   "description": "A demo project done following the complete JavaScript course from Udemy",
-  "main": "index.html",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html --no-cache",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --dist-dir ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/kusaldushmantha/forkify-js-recipe-book#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "npm-run-all": "^4.1.5",
     "parcel": "^2.0.0-beta.2"
   },
   "dependencies": {
